@@ -1,0 +1,32 @@
+body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%}
+#app{width:100%;height:100%}
+.app-layout{height: 100%;}
+
+.app-layout .app-header{background: #fff;padding: 0;height: 50px;line-height: normal;}
+.app-layout .app-header .logo{transition:width .3s ease-in-out;width:230px;text-align:center;display:block;float:left;padding:0 15px;height:50px;line-height:50px;background:#008d4c;color:#fff;font-weight:600;font-size:20px;overflow:hidden;}
+.app-layout .app-header .logo:hover {background-color: #008749;}
+.sider-trigger-a:hover {background-color: #008d4c;color: #fff;font-size: 14px;}
+
+.user-avator-dropdown{padding: 0 15px}
+.user-avator-dropdown:hover{background: rgba(0,0,0,0.1);color: #f6f6f6;}
+
+.app-layout .app-sider{background: #222d32;}
+.app-sider .menu-header{padding:12px 25px 12px 15px;background: #1a2226;color: #4b646f}
+.app-sider .ivu-menu{ color: #b8c7ce}
+.app-sider .ivu-menu-vertical.ivu-menu-light:after{width: 0}
+.app-sider .ivu-menu-light.ivu-menu-vertical .ivu-menu-item-active:not(.ivu-menu-submenu){color: #fff;border-right:none;background: #2c3b41 }
+.app-sider .ivu-menu-vertical > .ivu-menu-item,.app-sider .ivu-menu-vertical > .ivu-menu-submenu > .ivu-menu-submenu-title{background:#222d32}
+.app-sider .ivu-menu-vertical > .ivu-menu-item:hover,.app-sider .ivu-menu-vertical > .ivu-menu-submenu > .ivu-menu-submenu-title:hover{background:#1e282c}
+.app-sider .ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item:hover{color: #fff; background: #2c3b41;border-right: none;}
+.app-sider .ivu-menu-vertical .ivu-menu-opened .ivu-menu-submenu-title{background:#1e282c}
+.app-sider .ivu-menu-vertical>.ivu-menu-submenu .ivu-menu{background: #2c3b41}
+.app-sider .ivu-menu-vertical .ivu-menu-item, .app-sider .ivu-menu-vertical .ivu-menu-submenu-title{padding: 12px 5px 12px 15px;}
+.app-sider .ivu-menu-submenu .ivu-menu .ivu-menu-item{padding: 10px 15px}
+
+.app-sider .menu-user-avator{ border-radius:50%; margin: 8px 9px; }
+
+.app-layout .app-tab-nav-wrapper{padding:0;height:40px;background:#f0f0f0;overflow:hidden}
+.app-layout .app-content-wrapper{padding:5px}
+
+
+.custom-bread-crumb{height: 35px;line-height: 35px;}
