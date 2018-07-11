@@ -12,6 +12,7 @@ vue-mall
 可以直接在git上下载项目源码。
 或者通过git命令下载
 #git命令下载
+
 git clone https://github.com/hsdotnet/vue-mall.git
 
 第二步：启动
