@@ -20,8 +20,7 @@
     <div class="scroll-outer" ref="scrollOuter" @DOMMouseScroll="handlescroll" @mousewheel="handlescroll">
       <div ref="scrollBody" class="scroll-body" :style="{left: tagBodyLeft + 'px'}">
         <transition-group name="taglist-moving-animation">
-          <Tag
-            type="dot"
+          <Tab :class="item.name === value.name ? 'tab-item-selected' : ''"
             v-for="item in list"
             ref="tagsPageOpened"
             :key="`tag-nav-${item.name}`"
@@ -29,8 +28,7 @@
             @on-close="handleClose"
             @click.native="handleClick(item)"
             :closable="item.name !== 'home'"
-            :color="item.name === value.name ? 'blue' : 'default'"
-          >{{ showTitleInside(item) }}</Tag>
+          >{{ showTitleInside(item) }}</Tab>
         </transition-group>
       </div>
     </div>
@@ -38,9 +36,13 @@
 </template>
 
 <script>
+import Tab from '_c/tab'
 import { showTitle } from '@/libs/util'
 export default {
   name: 'AppTabNav',
+  components: {
+    Tab
+  },
   props: {
     value: Object,
     list: {
@@ -103,7 +105,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less">
-@import './app-tab-nav.less';
-</style>

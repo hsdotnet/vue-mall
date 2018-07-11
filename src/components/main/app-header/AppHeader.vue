@@ -1,8 +1,8 @@
 <template>
   <div class="app-header">
-    <router-link class="logo" to="/">Admin</router-link>
+    <a @click="handleChange" type="text" :class="['sider-trigger-a', collapsed ? 'collapsed' : '']"><Icon type="navicon-round" :size="20" /></a>
     <div class="header-bar">
-      <a @click="handleChange" type="text" :class="['sider-trigger-a', collapsed ? 'collapsed' : '']"><Icon type="navicon-round" :size="20" /></a>
+      <router-link class="logo" to="/">Admin</router-link>
       <div class="custom-content-con">
         <div class="user-avator-dropdown">
           <Dropdown @on-click="handleClick">
@@ -51,7 +51,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less">
-  @import './app-header.less';
-</style>

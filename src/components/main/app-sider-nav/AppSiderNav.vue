@@ -2,7 +2,16 @@
   <div class="side-menu-wrapper">
     <slot></slot>
     <div class="sider-menu">
-      <div v-show="!collapsed" class="menu-header">导航菜单</div>
+      <div class="sider-menu-top" v-show="!collapsed">
+        <div class="sider-user-box">
+          <Avatar :src="userAvator" />
+          <div class="info">
+            <p>Welcome，Admin</p>
+            <a href="javascript:void(0);"><Icon type="ionic"></Icon> Online</a>
+          </div>
+        </div>
+        <div class="menu-header">导航菜单</div>
+      </div>
       <Menu ref="menu" v-show="!collapsed" :active-name="activeName" :open-names="openedNames" :accordion="accordion" width="auto" @on-select="handleSelect">
         <template v-for="item in menuList">
           <template v-if="item.children && item.children.length === 1">
@@ -83,7 +92,8 @@ export default {
   },
   computed: {
     userAvator () {
-      return this.$store.state.user.avatorImgPath
+      //return this.$store.state.user.avatorImgPath
+      return 'http://adminlte.la998.com/dist/img/user2-160x160.jpg'
     }
   },
   watch: {
@@ -105,6 +115,3 @@ export default {
   }
 }
 </script>
-<style lang="less">
-@import './app-sider-nav.less';
-</style>
