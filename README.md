@@ -15,12 +15,16 @@ vue-mall
 git clone https://github.com/hsdotnet/vue-mall.git
 
 第二步：启动
+
 （1）新开一个命令行窗口
+
 （2）定位到项目目录并安装依赖
   > cd 你自己的位置/vue-mall
   > npm install
+  
 （3）依赖安装成功后执行启动命令
   > npm run dev
 
 项目截图
+
   <img src="https://github.com/hsdotnet/vue-mall/blob/master/src/assets/images/img1.png"/>
