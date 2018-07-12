@@ -30,9 +30,9 @@ body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%}
 .side-menu-wrapper .menu-collapsed .ivu-select-dropdown{width:160px;margin-left:4px}
 .side-menu-wrapper a.drop-menu-a{display:inline-block;padding:6px 15px;width:100%;text-align:center;color:#495060}
 .app-sider .menu-user-avator{ border-radius:50%; margin: 8px 9px; }
-.sider-user-box{padding: 12px;}
-.sider-user-box .ivu-avatar-image{width: 45px; height: 45px; border-radius: 50%;float: left;}
-.sider-user-box .info{ margin-left: 50px; padding: 5px 5px 5px 10px;color: #fff;font-size: 14px}
+.sider-user-box{padding: 12px;display:flex;align-items:center;}
+.sider-user-box .ivu-avatar-image{width: 45px; height: 45px; border-radius: 50%;}
+.sider-user-box .info{ margin-left: 10px; color: #fff;font-size: 14px}
 .app-sider .menu-header{padding:10px 25px 10px 15px;background: #1a2226;color: #4b646f}
 .app-sider .ivu-menu{ color: #b8c7ce}
 .app-sider .ivu-menu-vertical.ivu-menu-light:after{width: 0}

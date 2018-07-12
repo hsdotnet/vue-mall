@@ -15,7 +15,7 @@
           <div v-if="!isTab" class="custom-bread-crumb">
             <Breadcrumb>
               <BreadcrumbItem v-for="item in breadCrumbList" :to="item.to" :key="`bread-crumb-${item.name}`">
-                <Icon :type="item.icon || ''"></Icon>
+                <IconFont :type="item.icon || ''" />
                 {{ showTitle(item) }}
               </BreadcrumbItem>
             </Breadcrumb>
@@ -29,6 +29,7 @@
   </Layout>
 </template>
 <script>
+import IconFont from '_c/icon-font'
 import AppHeader from '_c/main/app-header'
 import AppSiderNav from '_c/main/app-sider-nav'
 import AppTabNav from '_c/main/app-tab-nav'
@@ -38,6 +39,7 @@ import { showTitle } from '@/libs/util'
 export default {
   name: 'Main',
   components: {
+    IconFont,
     AppHeader,
     AppSiderNav,
     AppTabNav
