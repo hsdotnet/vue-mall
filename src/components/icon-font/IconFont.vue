@@ -1,8 +1,9 @@
 <template>
-  <i :class="`iconfont icon-${type}`" :style="styles"></i>
+  <i :class="classes" :style="styles" @click="handleClick"></i>
 </template>
 
 <script>
+const prefixCls = 'iconfont';
 export default {
   name: 'IconFont',
   props: {
@@ -10,21 +11,27 @@ export default {
       type: String,
       required: true
     },
-    color: {
-      type: String,
-      default: '#5c6b77'
-    },
-    size: {
-      type: Number,
-      default: 16
-    }
+    color: String,
+    size: [Number, String],
   },
   computed: {
+    classes () {
+      return `${prefixCls} icon-${this.type}`
+    },
     styles () {
-      return {
-        fontSize: `${this.size}px`,
-        color: this.color
+      let style = {};
+      if (this.size) {
+        style['font-size'] = `${this.size}px`;
       }
+      if (this.color) {
+        style.color = this.color;
+      }
+      return style;
+    }
+  },
+  methods: {
+    handleClick (event) {
+      this.$emit('click', event);
     }
   }
 }

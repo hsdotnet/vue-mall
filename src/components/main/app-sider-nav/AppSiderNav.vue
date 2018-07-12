@@ -7,7 +7,7 @@
           <Avatar :src="userAvator" />
           <div class="info">
             <p>Welcome，Admin</p>
-            <a href="javascript:void(0);"><Icon type="ionic"></Icon> Online</a>
+            <a href="javascript:void(0);"><IconFont type="QQ" /> Online</a>
           </div>
         </div>
         <div class="menu-header">导航菜单</div>
@@ -16,11 +16,11 @@
         <template v-for="item in menuList">
           <template v-if="item.children && item.children.length === 1">
             <app-menu-item v-if="showChildren(item)" :key="`menu-${item.name}`" :parent-item="item"></app-menu-item>
-            <menu-item v-else :name="getNameOrHref(item, true)" :key="`menu-${item.children[0].name}`"><Icon :type="item.children[0].icon || ''"/><span>{{ showTitle(item.children[0]) }}</span></menu-item>
+            <menu-item v-else :name="getNameOrHref(item, true)" :key="`menu-${item.children[0].name}`"><IconFont :type="item.children[0].icon || ''"/><span>{{ showTitle(item.children[0]) }}</span></menu-item>
           </template>
           <template v-else>
             <app-menu-item v-if="showChildren(item)" :key="`menu-${item.name}`" :parent-item="item"></app-menu-item>
-            <menu-item v-else :name="getNameOrHref(item)" :key="`menu-${item.name}`"><Icon :type="item.icon || ''"/><span>{{ showTitle(item) }}</span></menu-item>
+            <menu-item v-else :name="getNameOrHref(item)" :key="`menu-${item.name}`"><IconFont :type="item.icon || ''"/><span>{{ showTitle(item) }}</span></menu-item>
           </template>
         </template>
       </Menu>
@@ -30,13 +30,14 @@
       <template v-for="item in menuList">
         <app-collapsed-menu v-if="item.children && item.children.length > 1" @on-click="handleSelect" hide-title :root-icon-size="rootIconSize" :icon-size="iconSize" :parent-item="item" :key="`drop-menu-${item.name}`"></app-collapsed-menu>
         <Tooltip v-else :content="item.meta.title || item.children[0].meta.title" placement="right" :key="`drop-menu-${item.name}`">
-          <a @click="handleSelect(getNameOrHref(item, true))" class="drop-menu-a" :style="{textAlign: 'center'}"><Icon :size="rootIconSize" :type="item.icon || item.children[0].icon"/></a>
+          <a @click="handleSelect(getNameOrHref(item, true))" class="drop-menu-a" :style="{textAlign: 'center'}"><IconFont :size="rootIconSize" :type="item.icon || item.children[0].icon"/></a>
         </Tooltip>
       </template>
     </div>
   </div>
 </template>
 <script>
+import IconFont from '_c/icon-font'
 import AppMenuItem from './AppMenuItem.vue'
 import AppCollapsedMenu from './AppCollapsedMenu.vue'
 import { getUnion } from '@/libs/tools'
@@ -46,6 +47,7 @@ export default {
   name: 'AppSiderNav',
   mixins: [ mixin ],
   components: {
+    IconFont,
     AppMenuItem,
     AppCollapsedMenu
   },
@@ -92,8 +94,7 @@ export default {
   },
   computed: {
     userAvator () {
-      //return this.$store.state.user.avatorImgPath
-      return 'http://adminlte.la998.com/dist/img/user2-160x160.jpg'
+      return this.$store.state.user.avatorImgPath
     }
   },
   watch: {

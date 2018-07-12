@@ -20,14 +20,15 @@
     <div class="scroll-outer" ref="scrollOuter" @DOMMouseScroll="handlescroll" @mousewheel="handlescroll">
       <div ref="scrollBody" class="scroll-body" :style="{left: tagBodyLeft + 'px'}">
         <transition-group name="taglist-moving-animation">
-          <Tab :class="item.name === value.name ? 'tab-item-selected' : ''"
+          <Tab :class="item.name === value.name ? 'tab-selected' : ''"
             v-for="item in list"
-            ref="tagsPageOpened"
-            :key="`tag-nav-${item.name}`"
+            ref="tabsPageOpened"
+            :key="`tab-nav-${item.name}`"
             :name="item.name"
             @on-close="handleClose"
             @click.native="handleClick(item)"
             :closable="item.name !== 'home'"
+            :icon="item.meta.icon"
           >{{ showTitleInside(item) }}</Tab>
         </transition-group>
       </div>
@@ -100,7 +101,6 @@ export default {
       this.$emit('input', item)
     },
     showTitleInside (item) {
-      console.log(item)
       return showTitle(item, this)
     }
   }

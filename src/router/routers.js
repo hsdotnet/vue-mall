@@ -37,7 +37,7 @@ export default [
           hideInMenu: true,
           notCache: true,
           title: '我的桌面',
-          icon: 'social-buffer'
+          icon: 'home'
         },
         component: () => import('@/views/dashboard')
       }
@@ -47,7 +47,7 @@ export default [
     path: '/system',
     name: 'system',
     meta: {
-      icon: 'social-buffer',
+      icon: 'setting',
       title: '系统管理'
     },
     component: Main,
@@ -56,7 +56,7 @@ export default [
         path: 'user',
         name: 'user',
         meta: {
-          icon: 'arrow-graph-up-right',
+          icon: 'user',
           title: '用户管理'
         },
         component: () => import('@/views/system/user')
@@ -65,7 +65,7 @@ export default [
         path: 'role',
         name: 'role',
         meta: {
-          icon: 'arrow-graph-up-right',
+          icon: 'team',
           title: '角色管理'
         },
         component: () => import('@/views/system/role')

@@ -1,14 +1,19 @@
 <template>
-    <div class="tab-item" @click.stop="check">
-        <Icon :type="icon" class="tab-item-icon" />
+    <div :class="classes" @click.stop="check">
+        <IconFont :type="icon" :class="iconClasses" />
         <span><slot></slot></span>
-        <Icon v-if="closable" type="ios-close-empty" class="tab-item-close-icon" @click.native.stop="close"/>
+        <IconFont v-if="closable" type="close" :class="closeIconClasses" @click.native.stop="close"/>
     </div>
 </template>
 
 <script>
+const prefixCls = 'tab'
+import IconFont from '_c/icon-font'
 export default {
   name: 'Tab',
+  components: {
+    IconFont
+  },
   props: {
     closable: {
       type: Boolean,
@@ -19,25 +24,33 @@ export default {
       default: 'navicon-round'
     },
     name: {
-        type: [String, Number]
+      type: [String, Number]
+    }
+  },
+  computed: {
+    classes () {
+      return prefixCls
     },
+    iconClasses () {
+      return `${prefixCls}-icon`
+    },
+    closeIconClasses () {
+      return `${prefixCls}-close-icon`
+    }
   },
   methods: {
-    close(event) {
+    close (event) {
       if (this.name === undefined) {
         this.$emit('on-close', event)
       } else {
         this.$emit('on-close', event, this.name)
       }
     },
-    check() {
-      if (!this.checkable) return;
-      const checked = !this.isChecked
-      this.isChecked = checked
+    check () {
       if (this.name === undefined) {
-        this.$emit('on-change', checked)
+        this.$emit('on-change')
       } else {
-        this.$emit('on-change', checked, this.name)
+        this.$emit('on-change', this.name)
       }
     }
   }

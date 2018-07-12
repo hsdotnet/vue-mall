@@ -1,6 +1,6 @@
 <template>
   <div class="app-header">
-    <a @click="handleChange" type="text" :class="['sider-trigger-a', collapsed ? 'collapsed' : '']"><Icon type="navicon-round" :size="20" /></a>
+    <a @click="handleChange" type="text" :class="['sider-trigger-a', collapsed ? 'collapsed' : '']"><IconFont :type="toggleIcon" :size="20" /></a>
     <div class="header-bar">
       <router-link class="logo" to="/">Admin</router-link>
       <div class="custom-content-con">
@@ -19,9 +19,13 @@
 </template>
 
 <script>
+import IconFont from '_c/icon-font'
 import { mapActions } from 'vuex'
 export default {
   name: 'AppHeader',
+  components: {
+    IconFont
+  },
   props: {
     collapsed: Boolean
   },
@@ -47,6 +51,9 @@ export default {
   computed: {
     userAvator () {
       return this.$store.state.user.avatorImgPath
+    },
+    toggleIcon () {
+      return this.collapsed ? 'indent' : 'outdent'
     }
   }
 }
