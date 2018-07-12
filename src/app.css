@@ -1,65 +1,59 @@
+.ivu-card-body{padding: 5px 5px 15px 5px !important}
+
 body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%}
 #app{width:100%;height:100%}
 .app-layout{height: 100%;}
 
 .app-layout .app-header{background: #fff;padding: 0;height: 50px;line-height: normal;}
-.app-layout .app-header .logo{transition:width .3s ease-in-out;width:180px;text-align:center;display:block;height:50px;line-height:50px;color:#fff;font-weight:600;font-size:20px;overflow:hidden;float: left;}
-.app-layout .app-header .logo:hover {background-color: #008749;}
+.app-header .sider-nav-toggle{padding:13px 15px 14px 15px;float:left;display:block;width:50px;text-align:center;color:#fff;border-right:1px solid rgba(0,0,0,.08)}
+.app-header .sider-nav-toggle:hover {background-color: #008d4c;color: #fff;font-size: 14px;}
+.app-header .header-bar{height:100%;padding-left:50px;background:#00a65a}
+.app-header .header-bar .logo{transition:width .3s ease-in-out;width:180px;text-align:center;display:block;height:50px;line-height:50px;color:#fff;font-weight:600;font-size:20px;overflow:hidden;float: left;}
+.app-header .header-bar .logo:hover {background-color: #008749;}
+.app-header .header-bar .custom-content-con{float:right;height:auto;padding-right:10px;line-height:50px;color:#fff}
+.app-header .header-bar .custom-content-con>*{float:right}
+.custom-content-con .user-dropdown{cursor:pointer;display:inline-block;vertical-align:middle;padding: 0 15px}
+.custom-content-con .user-dropdown:hover{background: rgba(0,0,0,0.1);color: #f6f6f6;}
+.custom-content-con .user-dropdown .user-dropdown-avator{margin-right:5px}
 
-.sider-trigger-a{padding:13px 15px 14px 15px;float:left;display:block;width:50px;text-align:center;color:#fff;border-right:1px solid rgba(0,0,0,.08)}
-.sider-trigger-a:hover {background-color: #008d4c;color: #fff;font-size: 14px;}
-.sider-trigger-a i{transition: transform .2s ease;}
-.sider-trigger-a.collapsed i{transform: rotateZ(90deg);transition: transform .2s ease;}
-.header-bar{height:100%;padding-left:50px;background:#00a65a}
-.header-bar .custom-content-con{float:right;height:auto;padding-right:10px;line-height:50px;color:#fff}
-.header-bar .custom-content-con>*{float:right}
-.user-avator-dropdown{cursor:pointer;display:inline-block;vertical-align:middle}
-.user-avator{margin-right:5px}
-.user-avator-dropdown{padding: 0 15px}
-.user-avator-dropdown:hover{background: rgba(0,0,0,0.1);color: #f6f6f6;}
+.app-layout .app-sider-nav{background: #222d32;}
+.app-sider-nav .menu-collapsed .ivu-dropdown{width:100%}
+.app-sider-nav .menu-collapsed .ivu-dropdown .ivu-dropdown-rel a{width:100%}
+.app-sider-nav .menu-collapsed .ivu-tooltip{width:100%}
+.app-sider-nav .menu-collapsed .ivu-tooltip .ivu-tooltip-rel{width:100%}
+.app-sider-nav .menu-collapsed .ivu-tooltip .ivu-tooltip-popper .ivu-tooltip-content .ivu-tooltip-arrow{border-right-color:#fff}
+.app-sider-nav .menu-collapsed .ivu-tooltip .ivu-tooltip-popper .ivu-tooltip-content .ivu-tooltip-inner{background:#fff;color:#495060}
+.app-sider-nav .menu-collapsed .menu-title{margin-left:6px}
+.app-sider-nav .menu-collapsed .ivu-select-dropdown{width:160px;margin-left:4px}
+.app-sider-nav a.drop-menu-a{display:inline-block;padding:6px 15px;width:100%;text-align:center;color:#495060}
+.app-sider-nav .menu-user-avator{ border-radius:50%; margin: 8px 9px; }
+.app-sider-nav .sider-user-box{padding: 12px;display:flex;align-items:center;}
+.app-sider-nav .sider-user-box .ivu-avatar-image{width: 45px; height: 45px; border-radius: 50%;}
+.app-sider-nav .sider-user-box .info{ margin-left: 10px; color: #fff;font-size: 14px}
+.app-sider-nav .menu-header{padding:10px 25px 10px 15px;background: #1a2226;color: #4b646f}
+.app-sider-nav .ivu-menu{ color: #b8c7ce}
+.app-sider-nav .ivu-menu-vertical.ivu-menu-light:after{width: 0}
+.app-sider-nav .ivu-menu-light.ivu-menu-vertical .ivu-menu-item-active:not(.ivu-menu-submenu){color: #fff;border-right:none;background: #2c3b41 }
+.app-sider-nav .ivu-menu-vertical > .ivu-menu-item,.app-sider-nav .ivu-menu-vertical > .ivu-menu-submenu > .ivu-menu-submenu-title{background:#222d32}
+.app-sider-nav .ivu-menu-vertical > .ivu-menu-item:hover,.app-sider-nav .ivu-menu-vertical > .ivu-menu-submenu > .ivu-menu-submenu-title:hover{background:#1e282c}
+.app-sider-nav .ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item:hover{color: #fff; background: #2c3b41;border-right: none;}
+.app-sider-nav .ivu-menu-vertical .ivu-menu-opened .ivu-menu-submenu-title{background:#1e282c}
+.app-sider-nav .ivu-menu-vertical>.ivu-menu-submenu .ivu-menu{background: #2c3b41}
+.app-sider-nav .ivu-menu-vertical .ivu-menu-item, .app-sider-nav .ivu-menu-vertical .ivu-menu-submenu-title{padding: 10px 5px 10px 15px;}
+.app-sider-nav .ivu-menu-submenu .ivu-menu .ivu-menu-item{padding: 8px 15px}
 
-.app-layout .app-sider{background: #222d32;}
-.side-menu-wrapper{user-select:none}
-.side-menu-wrapper .menu-collapsed .ivu-dropdown{width:100%}
-.side-menu-wrapper .menu-collapsed .ivu-dropdown .ivu-dropdown-rel a{width:100%}
-.side-menu-wrapper .menu-collapsed .ivu-tooltip{width:100%}
-.side-menu-wrapper .menu-collapsed .ivu-tooltip .ivu-tooltip-rel{width:100%}
-.side-menu-wrapper .menu-collapsed .ivu-tooltip .ivu-tooltip-popper .ivu-tooltip-content .ivu-tooltip-arrow{border-right-color:#fff}
-.side-menu-wrapper .menu-collapsed .ivu-tooltip .ivu-tooltip-popper .ivu-tooltip-content .ivu-tooltip-inner{background:#fff;color:#495060}
-.side-menu-wrapper .menu-collapsed .menu-title{margin-left:6px}
-.side-menu-wrapper .menu-collapsed .ivu-select-dropdown{width:160px;margin-left:4px}
-.side-menu-wrapper a.drop-menu-a{display:inline-block;padding:6px 15px;width:100%;text-align:center;color:#495060}
-.app-sider .menu-user-avator{ border-radius:50%; margin: 8px 9px; }
-.sider-user-box{padding: 12px;display:flex;align-items:center;}
-.sider-user-box .ivu-avatar-image{width: 45px; height: 45px; border-radius: 50%;}
-.sider-user-box .info{ margin-left: 10px; color: #fff;font-size: 14px}
-.app-sider .menu-header{padding:10px 25px 10px 15px;background: #1a2226;color: #4b646f}
-.app-sider .ivu-menu{ color: #b8c7ce}
-.app-sider .ivu-menu-vertical.ivu-menu-light:after{width: 0}
-.app-sider .ivu-menu-light.ivu-menu-vertical .ivu-menu-item-active:not(.ivu-menu-submenu){color: #fff;border-right:none;background: #2c3b41 }
-.app-sider .ivu-menu-vertical > .ivu-menu-item,.app-sider .ivu-menu-vertical > .ivu-menu-submenu > .ivu-menu-submenu-title{background:#222d32}
-.app-sider .ivu-menu-vertical > .ivu-menu-item:hover,.app-sider .ivu-menu-vertical > .ivu-menu-submenu > .ivu-menu-submenu-title:hover{background:#1e282c}
-.app-sider .ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item:hover{color: #fff; background: #2c3b41;border-right: none;}
-.app-sider .ivu-menu-vertical .ivu-menu-opened .ivu-menu-submenu-title{background:#1e282c}
-.app-sider .ivu-menu-vertical>.ivu-menu-submenu .ivu-menu{background: #2c3b41}
-.app-sider .ivu-menu-vertical .ivu-menu-item, .app-sider .ivu-menu-vertical .ivu-menu-submenu-title{padding: 10px 5px 10px 15px;}
-.app-sider .ivu-menu-submenu .ivu-menu .ivu-menu-item{padding: 8px 15px}
+.app-layout .app-tabs-nav-wrapper{padding:0;height:40px;overflow:hidden;border-bottom: 1px solid #ddd;background: #fff}
+.app-tabs-nav-wrapper .tabs-nav{position:relative;user-select:none;width:100%;height:100%}
+.app-tabs-nav-wrapper .tabs-nav .close-con{position:absolute;right:0;top:0;height:100%;width:32px;background:#fff;text-align:center;z-index:10;border-left:1px solid #ddd}
+.app-tabs-nav-wrapper .tabs-nav .btn-con{position:absolute;top:0;height:100%;background:#fff;padding-top:3px;z-index:10}
+.app-tabs-nav-wrapper .tabs-nav .btn-con button{padding:6px 10px;text-align:center;outline: none;box-shadow: none}
+.app-tabs-nav-wrapper .tabs-nav .btn-con.left-btn{left:0;border-right:1px solid #ddd}
+.app-tabs-nav-wrapper .tabs-nav .btn-con.right-btn{right:32px;border-left:1px solid #ddd}
+.app-tabs-nav-wrapper .tabs-nav .scroll-outer{position:absolute;left:29px;right:61px;top:0;bottom:0;}
+.app-tabs-nav-wrapper .tabs-nav .scroll-outer .scroll-body{display:inline-block;position:absolute;overflow:visible;white-space:nowrap;transition: left .3s ease;}
+.tabs-nav .tab{height: 39px; line-height: 39px;font-size: 13px}
+.tabs-nav .tab.tab-selected{border-bottom: 2px solid #00a65a;}
+.tabs-nav .tab > i.tab-close-icon:hover{color: #f00}
+.app-tab-nav-wrapper .app-tabs-nav-breadcrumb{height: 40px;line-height: 40px; padding-left: 10px;}
 
-.app-layout .app-tab-nav-wrapper{padding:0;height:40px;overflow:hidden;border-bottom: 1px solid #ddd;background: #fff}
-.tags-nav{position:relative;user-select:none;width:100%;height:100%}
-.tags-nav .close-con{position:absolute;right:0;top:0;height:100%;width:32px;background:#fff;text-align:center;z-index:10;border-left:1px solid #ddd}
-.tags-nav .btn-con{position:absolute;top:0;height:100%;background:#fff;padding-top:3px;z-index:10}
-.tags-nav .btn-con button{padding:6px 10px;text-align:center;outline: none;box-shadow: none}
-.tags-nav .btn-con.left-btn{left:0;border-right:1px solid #ddd}
-.tags-nav .btn-con.right-btn{right:32px;border-left:1px solid #ddd}
-.tags-nav .scroll-outer{position:absolute;left:29px;right:61px;top:0;bottom:0;}
-.tags-nav .scroll-outer .scroll-body{display:inline-block;position:absolute;overflow:visible;white-space:nowrap;transition: left .3s ease;}
-.tab{padding: 0 15px; height: 39px; line-height: 39px;font-size: 13px}
-.tab-selected{border-bottom: 2px solid #00a65a;}
-.tab > i.tab-close-icon:hover{color: #f00}
-
-.app-layout .app-content-wrapper{padding:5px;position:absolute}
-
-.app-tab-nav-wrapper .app-tab-nav-breadcrumb{height: 40px;line-height: 40px; padding-left: 10px;}
-
-.ivu-card-body{padding: 5px 5px 15px 5px !important}
+.app-layout .app-content-wrapper{padding:5px;position:absolute;width: 100%;}

@@ -4,14 +4,14 @@
       <AppHeader :collapsed="collapsed" @on-change="handleCollapsedChange" />
     </Header>
     <Layout>
-      <Sider class="app-sider" hide-trigger collapsible :width="230" :collapsed-width="50" v-model="collapsed">
+      <Sider class="app-sider-nav" hide-trigger collapsible :width="230" :collapsed-width="50" v-model="collapsed">
         <AppSiderNav accordion :active-name="$route.name" :collapsed="collapsed" @on-select="turnToPage" :menu-list="menuList" />
       </Sider>
       <Layout>
         <div>
-          <div class="app-tab-nav-wrapper">
+          <div class="app-tabs-nav-wrapper">
             <AppTabNav v-if="isTab" :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag" />
-            <Breadcrumb v-else class="app-tab-nav-breadcrumb">
+            <Breadcrumb v-else class="app-tabs-nav-breadcrumb">
                 <BreadcrumbItem v-for="item in breadCrumbList" :to="item.to" :key="`bread-crumb-${item.name}`">
                   <IconFont :type="item.icon || ''" />
                   {{ showTitle(item) }}
@@ -117,14 +117,16 @@ export default {
     }
   },
   mounted () {
-    /**
-     * @description 初始化设置面包屑导航和标签导航
-     */
-    if (this.$store.state.user.isTab) {
-      this.setTagNavList()
-      this.addTag(this.$store.state.app.homeRoute)
+    const that = this
+    that.collapsed = document.documentElement.clientWidth < 768
+    window.onresize = function temp () {
+      that.collapsed = document.documentElement.clientWidth < 768
+    }
+    if (that.$store.state.user.isTab) {
+      that.setTagNavList()
+      that.addTag(that.$store.state.app.homeRoute)
     } else {
-      this.setBreadCrumb(this.$route.matched)
+      that.setBreadCrumb(that.$route.matched)
     }
   }
 }

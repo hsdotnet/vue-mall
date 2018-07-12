@@ -1,5 +1,5 @@
 <template>
-  <div class="tags-nav">
+  <div class="tabs-nav">
     <div class="close-con">
       <Dropdown transfer @on-click="handleTagsOption" style="margin-top:7px;">
         <Button size="small" type="text">

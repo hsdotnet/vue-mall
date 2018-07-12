@@ -1,15 +1,17 @@
 <template>
   <div class="app-header">
-    <a @click="handleChange" type="text" :class="['sider-trigger-a', collapsed ? 'collapsed' : '']"><IconFont :type="toggleIcon" :size="20" /></a>
+    <a @click="handleChange" type="text" :class="['sider-nav-toggle', collapsed ? 'collapsed' : '']"><IconFont :type="toggleIcon" :size="20" /></a>
     <div class="header-bar">
       <router-link class="logo" to="/">Admin</router-link>
       <div class="custom-content-con">
-        <div class="user-avator-dropdown">
+        <div class="user-dropdown">
           <Dropdown @on-click="handleClick">
-            <Avatar :src="userAvator" class="user-avator"/>
+            <Avatar :src="userAvator" class="user-dropdown-avator"/>
             <span>Admin</span>
             <DropdownMenu slot="list">
-              <DropdownItem name="logout">退出登录</DropdownItem>
+              <DropdownItem name="profile"><IconFont type="user"/> 账户信息</DropdownItem>
+              <DropdownItem name="setting"><IconFont type="setting"/> 个人设置</DropdownItem>
+              <DropdownItem name="logout" divided><IconFont type="logout"/> 退出登录</DropdownItem>
             </DropdownMenu>
           </Dropdown>
         </div>

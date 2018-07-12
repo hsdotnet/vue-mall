@@ -12,7 +12,7 @@ const router = new Router({
 })
 
 iView.LoadingBar.config({
-  color: '#000',
+  color: '#222d32',
   failedColor: '#f0ad4e',
   height: 2
 })
