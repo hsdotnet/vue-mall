@@ -45,7 +45,7 @@ body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%}
 .app-sider .ivu-menu-vertical .ivu-menu-item, .app-sider .ivu-menu-vertical .ivu-menu-submenu-title{padding: 10px 5px 10px 15px;}
 .app-sider .ivu-menu-submenu .ivu-menu .ivu-menu-item{padding: 8px 15px}
 
-.app-layout .app-tab-nav-wrapper{padding:0;height:40px;overflow:hidden;border-bottom: 1px solid #ddd}
+.app-layout .app-tab-nav-wrapper{padding:0;height:40px;overflow:hidden;border-bottom: 1px solid #ddd;background: #fff}
 .tags-nav{position:relative;user-select:none;width:100%;height:100%}
 .tags-nav .close-con{position:absolute;right:0;top:0;height:100%;width:32px;background:#fff;text-align:center;z-index:10;border-left:1px solid #ddd}
 .tags-nav .btn-con{position:absolute;top:0;height:100%;background:#fff;padding-top:3px;z-index:10}
@@ -61,3 +61,5 @@ body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%}
 .app-layout .app-content-wrapper{padding:5px}
 
 .custom-bread-crumb{height: 35px;line-height: 35px;}
+
+.ivu-card-body{padding: 5px 5px 15px 5px !important}

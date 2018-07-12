@@ -10,6 +10,13 @@ const router = new Router({
   routes,
   mode: 'history'
 })
+
+iView.LoadingBar.config({
+  color: '#000',
+  failedColor: '#f0ad4e',
+  height: 2
+})
+
 const LOGIN_PAGE_NAME = 'login'
 
 router.beforeEach((to, from, next) => {

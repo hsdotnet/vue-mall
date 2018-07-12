@@ -35,7 +35,9 @@ export default [
         name: 'home',
         meta: {
           hideInMenu: true,
-          notCache: true
+          notCache: true,
+          title: '我的桌面',
+          icon: 'social-buffer'
         },
         component: () => import('@/views/dashboard')
       }
