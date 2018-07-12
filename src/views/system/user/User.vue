@@ -1,13 +1,12 @@
 <template>
   <Card>
     <div class="search-con search-con-top">
-      <Select class="search-col">
-        
-      </Select>
+      <Select class="search-col"></Select>
       <Input clearable placeholder="输入关键字搜索" class="search-input" />
       <Button class="search-btn" type="primary"><Icon type="search"/>&nbsp;&nbsp;搜索</Button>
     </div>
     <Table border :columns="columns1" :data="data1"></Table>
+    <div style="height:500px;"></div>
   </Card>
 </template>
 

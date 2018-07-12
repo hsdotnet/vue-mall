@@ -3,7 +3,7 @@
 </template>
 
 <script>
-const prefixCls = 'iconfont';
+const prefixCls = 'iconfont'
 export default {
   name: 'IconFont',
   props: {
@@ -12,31 +12,27 @@ export default {
       required: true
     },
     color: String,
-    size: [Number, String],
+    size: [Number, String]
   },
   computed: {
     classes () {
       return `${prefixCls} icon-${this.type}`
     },
     styles () {
-      let style = {};
+      let style = {}
       if (this.size) {
-        style['font-size'] = `${this.size}px`;
+        style['font-size'] = `${this.size}px`
       }
       if (this.color) {
-        style.color = this.color;
+        style.color = this.color
       }
-      return style;
+      return style
     }
   },
   methods: {
     handleClick (event) {
-      this.$emit('click', event);
+      this.$emit('click', event)
     }
   }
 }
 </script>
-
-<style>
-
-</style>

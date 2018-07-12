@@ -7,8 +7,8 @@
 </template>
 
 <script>
-const prefixCls = 'tab'
 import IconFont from '_c/icon-font'
+const prefixCls = 'tab'
 export default {
   name: 'Tab',
   components: {

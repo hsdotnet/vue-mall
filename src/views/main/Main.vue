@@ -8,22 +8,24 @@
         <AppSiderNav accordion :active-name="$route.name" :collapsed="collapsed" @on-select="turnToPage" :menu-list="menuList" />
       </Sider>
       <Layout>
-        <div v-if="isTab" class="app-tab-nav-wrapper">
-          <AppTabNav :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag" />
-        </div>
-        <Content class="app-content-wrapper">
-          <div v-if="!isTab" class="custom-bread-crumb">
-            <Breadcrumb>
-              <BreadcrumbItem v-for="item in breadCrumbList" :to="item.to" :key="`bread-crumb-${item.name}`">
-                <IconFont :type="item.icon || ''" />
-                {{ showTitle(item) }}
-              </BreadcrumbItem>
-            </Breadcrumb>
+        <div>
+          <div class="app-tab-nav-wrapper">
+            <AppTabNav v-if="isTab" :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag" />
+            <Breadcrumb v-else class="app-tab-nav-breadcrumb">
+                <BreadcrumbItem v-for="item in breadCrumbList" :to="item.to" :key="`bread-crumb-${item.name}`">
+                  <IconFont :type="item.icon || ''" />
+                  {{ showTitle(item) }}
+                </BreadcrumbItem>
+              </Breadcrumb>
           </div>
-          <keep-alive :include="cacheList">
-            <router-view/>
-          </keep-alive>
-        </Content>
+        </div>
+        <Layout style="overflow-x:hidden;position:relative">
+          <Content class="app-content-wrapper">
+            <keep-alive :include="cacheList">
+              <router-view/>
+            </keep-alive>
+          </Content>
+        </Layout>
       </Layout>
     </Layout>
   </Layout>
@@ -34,8 +36,7 @@ import AppHeader from '_c/main/app-header'
 import AppSiderNav from '_c/main/app-sider-nav'
 import AppTabNav from '_c/main/app-tab-nav'
 import { mapMutations, mapActions } from 'vuex'
-import { getNewTagList, getNextName } from '@/libs/util'
-import { showTitle } from '@/libs/util'
+import { getNewTagList, getNextName, showTitle } from '@/libs/util'
 export default {
   name: 'Main',
   components: {
@@ -119,10 +120,10 @@ export default {
     /**
      * @description 初始化设置面包屑导航和标签导航
      */
-    if(this.$store.state.user.isTab){
+    if (this.$store.state.user.isTab) {
       this.setTagNavList()
       this.addTag(this.$store.state.app.homeRoute)
-    }else{
+    } else {
       this.setBreadCrumb(this.$route.matched)
     }
   }
