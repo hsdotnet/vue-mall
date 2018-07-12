@@ -23,6 +23,9 @@ export default {
     setAccess (state, access) {
       state.access = access
     },
+    setIsTab (state, isTab) {
+      state.isTab = isTab
+    },
     setToken (state, token) {
       state.token = token
       setToken(token)
@@ -37,7 +40,7 @@ export default {
           password
         }).then(res => {
           if (res.code === 0) {
-            commit('setToken', res.data)
+            commit('setToken', res.data.token)
             resolve()
           }
         }).catch(err => {
@@ -62,13 +65,14 @@ export default {
       })
     },
     // 获取用户相关信息
-    getUserInfo ({ commit }) {
+    getUserInfo ({ state, commit }) {
       return new Promise((resolve, reject) => {
-        getUserInfo().then(res => {
+        getUserInfo(state.token).then(res => {
           const data = res.data
-          commit('setAvator', 'http://adminlte.la998.com/dist/img/user2-160x160.jpg')
+          commit('setAvator', data.avator)
           commit('setUserName', data.userName)
           commit('setUserId', data.userId)
+          commit('setIsTab', data.isTab)
           commit('setAccess', [])
           resolve(data)
         }).catch(err => {

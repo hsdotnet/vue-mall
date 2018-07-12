@@ -5,6 +5,7 @@ import store from './store'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 import '@/assets/icons/iconfont.css'
+import '@/mock'
 
 Vue.use(iView)
 Vue.config.productionTip = false
