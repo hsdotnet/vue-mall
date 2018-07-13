@@ -40,7 +40,7 @@ export default {
           password
         }).then(res => {
           if (res.code === 0) {
-            commit('setToken', res.data.token)
+            commit('setToken', res.data)
             resolve()
           }
         }).catch(err => {
@@ -49,7 +49,7 @@ export default {
       })
     },
     // 退出登录
-    handleLogOut ({ state, commit }) {
+    handleLogout ({ state, commit }) {
       return new Promise((resolve, reject) => {
         logout(state.token).then(() => {
           commit('setToken', '')

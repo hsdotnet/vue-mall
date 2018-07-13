@@ -2,7 +2,7 @@ import Axios from 'axios'
 import { Message } from 'iview'
 import Cookies from 'js-cookie'
 import { TOKEN_KEY } from '@/libs/util'
-const baseURL = 'http://localhost:1020'
+const baseURL = 'http://localhost:8010'
 class httpRequest {
   constructor () {
     this.options = {

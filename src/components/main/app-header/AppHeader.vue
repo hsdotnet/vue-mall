@@ -1,6 +1,6 @@
 <template>
   <div class="app-header">
-    <a @click="handleChange" type="text" :class="['sider-nav-toggle', collapsed ? 'collapsed' : '']"><IconFont :type="toggleIcon" :size="20" /></a>
+    <a @click="handleChange" type="text" :class="['sider-nav-toggle', collapsed ? 'collapsed' : '']"><IconFont type="outdent" :size="20" /></a>
     <div class="header-bar">
       <router-link class="logo" to="/">Admin</router-link>
       <div class="custom-content-con">
@@ -9,7 +9,7 @@
             <Avatar :src="userAvator" class="user-dropdown-avator"/>
             <span>Admin</span>
             <DropdownMenu slot="list">
-              <DropdownItem name="profile"><IconFont type="user"/> 账户信息</DropdownItem>
+              <DropdownItem name="profile"><IconFont type="user"/> 个人中心</DropdownItem>
               <DropdownItem name="setting"><IconFont type="setting"/> 个人设置</DropdownItem>
               <DropdownItem name="logout" divided><IconFont type="logout"/> 退出登录</DropdownItem>
             </DropdownMenu>
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     ...mapActions([
-      'handleLogOut'
+      'handleLogout'
     ]),
     handleChange () {
       this.$emit('on-change', !this.collapsed)
@@ -41,7 +41,7 @@ export default {
     handleClick (name) {
       switch (name) {
         case 'logout':
-          this.handleLogOut().then(() => {
+          this.handleLogout().then(() => {
             this.$router.push({
               name: 'login'
             })
@@ -53,9 +53,6 @@ export default {
   computed: {
     userAvator () {
       return this.$store.state.user.avatorImgPath
-    },
-    toggleIcon () {
-      return this.collapsed ? 'indent' : 'outdent'
     }
   }
 }

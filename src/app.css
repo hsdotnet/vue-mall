@@ -5,8 +5,10 @@ body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%}
 .app-layout{height: 100%;}
 
 .app-layout .app-header{background: #fff;padding: 0;height: 50px;line-height: normal;}
-.app-header .sider-nav-toggle{padding:13px 15px 14px 15px;float:left;display:block;width:50px;text-align:center;color:#fff;border-right:1px solid rgba(0,0,0,.08)}
+.app-header .sider-nav-toggle{padding:13px 15px 14px 15px;float:left;display:block;width:50px;text-align:center;color:#fff;border-right:1px solid rgba(0,0,0,.08);}
 .app-header .sider-nav-toggle:hover {background-color: #008d4c;color: #fff;font-size: 14px;}
+.app-header .sider-nav-toggle i{transition: transform .2s;display: inline-block;}
+.app-header .sider-nav-toggle.collapsed i{transform: rotateZ(180deg);}
 .app-header .header-bar{height:100%;padding-left:50px;background:#00a65a}
 .app-header .header-bar .logo{transition:width .3s ease-in-out;width:180px;text-align:center;display:block;height:50px;line-height:50px;color:#fff;font-weight:600;font-size:20px;overflow:hidden;float: left;}
 .app-header .header-bar .logo:hover {background-color: #008749;}
@@ -54,6 +56,6 @@ body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%}
 .tabs-nav .tab{height: 39px; line-height: 39px;font-size: 13px}
 .tabs-nav .tab.tab-selected{border-bottom: 2px solid #00a65a;}
 .tabs-nav .tab > i.tab-close-icon:hover{color: #f00}
-.app-tab-nav-wrapper .app-tabs-nav-breadcrumb{height: 40px;line-height: 40px; padding-left: 10px;}
+.app-tabs-nav-wrapper .app-tabs-nav-breadcrumb{height: 40px;line-height: 40px; padding-left: 10px;}
 
 .app-layout .app-content-wrapper{padding:5px;position:absolute;width: 100%;}

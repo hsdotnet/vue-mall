@@ -1,10 +1,11 @@
 import axios from '@/libs/api.request'
 
-export const getRouterReq = (access) => {
+export const getRoles = ({ page, size }) => {
   return axios.request({
-    url: 'get_router',
+    url: '/role/getRoles',
     params: {
-      access
+      page,
+      size
     },
     method: 'get'
   })
