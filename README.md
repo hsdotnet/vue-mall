@@ -31,8 +31,10 @@ git clone https://github.com/hsdotnet/vue-mall.git
 
 项目截图
 
-  <img src="https://github.com/hsdotnet/vue-mall/blob/master/src/assets/images/2.png?r=111"/>
+  <img src="https://github.com/hsdotnet/vue-mall/blob/master/src/assets/images/1.png"/>
+
+  <img src="https://github.com/hsdotnet/vue-mall/blob/master/src/assets/images/2.png"/>
   
-  <img src="https://github.com/hsdotnet/vue-mall/blob/master/src/assets/images/1.png?r=111"/>
-  
-  <img src="https://github.com/hsdotnet/vue-mall/blob/master/src/assets/images/3.png?r=111"/>
+  <img src="https://github.com/hsdotnet/vue-mall/blob/master/src/assets/images/3.png"/>
+
+  <img src="https://github.com/hsdotnet/vue-mall/blob/master/src/assets/images/4.png"/>
