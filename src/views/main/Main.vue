@@ -10,12 +10,15 @@
       <Layout>
         <div class="app-tabs-nav-wrapper">
           <AppTabNav v-if="isTab" :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag" />
-          <Breadcrumb v-else class="app-tabs-nav-breadcrumb">
-            <BreadcrumbItem v-for="item in breadCrumbList" :to="item.to" :key="`bread-crumb-${item.name}`">
-              <IconFont :type="item.icon || ''" />
+          <div v-else class="app-tabs-nav-breadcrumb">
+            <Breadcrumb>
+              <BreadcrumbItem v-for="item in breadCrumbList" :to="item.to" :key="`bread-crumb-${item.name}`">
+                <IconFont :type="item.icon || ''" />
                 {{ showTitle(item) }}
               </BreadcrumbItem>
             </Breadcrumb>
+            <Time class="time" />
+          </div>
         </div>
         <Layout class="app-content-layout">
           <Content class="app-content-wrapper">
@@ -34,6 +37,7 @@ import IconFont from '_c/icon-font'
 import AppHeader from '_c/main/app-header'
 import AppSiderNav from '_c/main/app-sider-nav'
 import AppTabNav from '_c/main/app-tab-nav'
+import Time from '_c/time'
 import { mapMutations, mapActions } from 'vuex'
 import { getNewTagList, getNextName, showTitle } from '@/libs/util'
 export default {
@@ -42,7 +46,8 @@ export default {
     IconFont,
     AppHeader,
     AppSiderNav,
-    AppTabNav
+    AppTabNav,
+    Time
   },
   data () {
     return {

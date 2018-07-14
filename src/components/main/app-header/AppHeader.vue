@@ -1,6 +1,6 @@
 <template>
   <div class="app-header">
-    <a @click="handleChange" type="text" :class="['sider-nav-toggle', collapsed ? 'collapsed' : '']"><IconFont type="outdent" :size="20" /></a>
+    <a @click="handleToggle" type="text" :class="['sider-nav-toggle', collapsed ? 'collapsed' : '']"><IconFont type="outdent" :size="20" /></a>
     <div class="header-bar">
       <router-link class="logo" to="/">Admin</router-link>
       <div class="custom-content-con">
@@ -36,7 +36,7 @@ export default {
     ...mapActions([
       'handleLogout'
     ]),
-    handleChange () {
+    handleToggle () {
       this.$emit('on-change', !this.collapsed)
     },
     handleClick (name) {

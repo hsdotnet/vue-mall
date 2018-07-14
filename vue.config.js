@@ -11,5 +11,15 @@ module.exports = {
       .set('@', resolve('src'))
       .set('_c', resolve('src/components'))
   },
-  productionSourceMap: false
+  productionSourceMap: false,
+  devServer: {
+    open: process.platform === 'darwin',
+    disableHostCheck: false,
+    host: '0.0.0.0',
+    port: 8020,
+    https: false,
+    hotOnly: false,
+    proxy: null,
+    before: app => {}
+  }
 }
