@@ -1,12 +1,15 @@
 <template>
   <Card>
-    <div class="search-con search-con-top">
-      <Select class="search-col"></Select>
-      <Input clearable placeholder="输入关键字搜索" class="search-input" />
-      <Button class="search-btn" type="primary"><Icon type="search"/>&nbsp;&nbsp;搜索</Button>
+    <div class="search-bar">
+      <Input clearable placeholder="输入关键字搜索" class="search-input" v-model="searchKey" />
+      <Button class="search-btn" type="primary" @click="search"><Icon type="search" />&nbsp;&nbsp;搜索</Button>
     </div>
-    <Table border :columns="columns" :data="data"></Table>
-    <div style="height:500px;"></div>
+    <Table border :columns="columns" :data="data" size="small"></Table>
+    <div style="margin: 10px;overflow: hidden">
+        <div style="float: right;">
+            <Page :total="total" :current="page" show-sizer show-total @on-change="pageChange" @on-page-size-change="pageSizeChange"></Page>
+        </div>
+    </div>
   </Card>
 </template>
 
@@ -17,40 +20,41 @@ export default {
   data () {
     return {
       columns: [
-        { title: '编号', key: 'roleId' },
-        { title: '名称', key: 'roleName' },
+        { type: 'selection', width: 60, align: 'center' },
+        { title: '编号', width: 70, key: 'roleId' },
+        { title: '名称', width: 200, key: 'roleName' },
         { title: '备注', key: 'remark' }
       ],
-      data: []
+      data: [],
+      page: 1,
+      size: 10,
+      total: 0,
+      searchKey: ''
     }
   },
   methods: {
-    
+    getTableData () {
+      var that = this
+      getRoles(that.page, that.size).then(res=> {
+        that.data = res.data.rows
+        that.total = res.data.records;
+      })
+    },
+    search () {
+      this.page = 1
+      this.getTableData()
+    },
+    pageChange (page) {
+      this.page = page
+      this.getTableData()  
+    },
+    pageSizeChange (size) {
+      this.size = size;
+      this.getTableData();
+    }
   },
   mounted () {
-    getRoles().then(res=> {
-      console.log(res)
-    })
+    this.getTableData()
   }
 }
 </script>
-
-<style lang="less">
-.search-con{
-  padding: 5px 0;
-  .search{
-    &-col{
-      display: inline-block;
-      width: 200px;
-    }
-    &-input{
-      display: inline-block;
-      width: 200px;
-      margin-left: 2px;
-    }
-    &-btn{
-      margin-left: 2px;
-    }
-  }
-}
-</style>

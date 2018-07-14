@@ -16,3 +16,10 @@ export const getDepts = () => {
     method: 'get'
   })
 }
+
+export const getDeptTree = () => {
+  return axios.request({
+    url: '/dept/getDeptTree',
+    method: 'get'
+  })
+}

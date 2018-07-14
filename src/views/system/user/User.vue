@@ -1,52 +1,56 @@
 <template>
   <Card>
-    <div class="search-con search-con-top">
-      <Select class="search-col"></Select>
-      <Input clearable placeholder="输入关键字搜索" class="search-input" />
-      <Button class="search-btn" type="primary"><Icon type="search"/>&nbsp;&nbsp;搜索</Button>
+    <div class="search-bar">
+      <Input clearable placeholder="输入关键字搜索" class="search-input" v-model="searchKey" />
+      <Button class="search-btn" type="primary" @click="search"><Icon type="search" />&nbsp;&nbsp;搜索</Button>
     </div>
-    <Table border :columns="columns1" :data="data1"></Table>
-    <div style="height:500px;"></div>
+    <Table border :columns="columns" :data="data" size="small"></Table>
   </Card>
 </template>
 
 <script>
+import moment from 'moment'
+import { getUsers } from '@/api/user'
 export default {
   name: 'User',
   data () {
     return {
-      columns1: [
-        { title: 'Name', key: 'name' },
-        { title: 'Age', key: 'age' },
-        { title: 'Address', key: 'address' }
+      columns: [
+        { type: 'selection', width: 60, align: 'center' },
+        { title: '编号', width: 70, key: 'userId' },
+        { title: '用户名', width: 100, key: 'userName' },
+        { title: '真实姓名', width: 100, key: 'realName' },
+        { title: '性别', width: 70, key: 'sex', align: 'center', render: (h, params) => {
+          const row = params.row
+          const color = row.sex === 1 ? 'green' : 'blue'
+          const text = row.sex === 1 ? '男' : '女'
+          return h('Tag', {
+            props: { color: color }
+          }, text);
+        } },
+        { title: '出生日期', width: 100, key: 'birthday', align: 'center', render: (h, params) => {
+          return h('div', moment().format('YYYY-MM-DD'))
+        } },
+        { title: '邮箱', width: 200, key: 'email' },
+        { title: '备注', key: 'remark' }
       ],
-      data1: []
+      data: [],
+      searchKey: ''
     }
   },
   methods: {
-    handleDelete (params) {
-      console.log(params)
+    getTableData () {
+      var that = this
+      getUsers(1, '', '').then(res=> {
+        that.data = res.data
+      })
+    },
+    search () {
+      this.getTableData()
     }
+  },
+  mounted () {
+    this.getTableData()
   }
 }
 </script>
-
-<style lang="less">
-.search-con{
-  padding: 5px 0;
-  .search{
-    &-col{
-      display: inline-block;
-      width: 200px;
-    }
-    &-input{
-      display: inline-block;
-      width: 200px;
-      margin-left: 2px;
-    }
-    &-btn{
-      margin-left: 2px;
-    }
-  }
-}
-</style>

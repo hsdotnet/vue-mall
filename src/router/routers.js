@@ -69,6 +69,15 @@ export default [
           title: '角色管理'
         },
         component: () => import('@/views/system/role')
+      },
+      {
+        path: 'dept',
+        name: 'dept',
+        meta: {
+          icon: 'solution',
+          title: '部门管理'
+        },
+        component: () => import('@/views/system/dept')
       }
     ]
   }

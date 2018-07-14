@@ -8,18 +8,16 @@
         <AppSiderNav accordion :active-name="$route.name" :collapsed="collapsed" @on-select="turnToPage" :menu-list="menuList" />
       </Sider>
       <Layout>
-        <div>
-          <div class="app-tabs-nav-wrapper">
-            <AppTabNav v-if="isTab" :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag" />
-            <Breadcrumb v-else class="app-tabs-nav-breadcrumb">
-                <BreadcrumbItem v-for="item in breadCrumbList" :to="item.to" :key="`bread-crumb-${item.name}`">
-                  <IconFont :type="item.icon || ''" />
-                  {{ showTitle(item) }}
-                </BreadcrumbItem>
-              </Breadcrumb>
-          </div>
+        <div class="app-tabs-nav-wrapper">
+          <AppTabNav v-if="isTab" :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag" />
+          <Breadcrumb v-else class="app-tabs-nav-breadcrumb">
+            <BreadcrumbItem v-for="item in breadCrumbList" :to="item.to" :key="`bread-crumb-${item.name}`">
+              <IconFont :type="item.icon || ''" />
+                {{ showTitle(item) }}
+              </BreadcrumbItem>
+            </Breadcrumb>
         </div>
-        <Layout style="overflow-x:hidden;position:relative">
+        <Layout class="app-content-layout">
           <Content class="app-content-wrapper">
             <keep-alive :include="cacheList">
               <router-view/>
@@ -30,6 +28,7 @@
     </Layout>
   </Layout>
 </template>
+
 <script>
 import IconFont from '_c/icon-font'
 import AppHeader from '_c/main/app-header'

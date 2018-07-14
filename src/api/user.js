@@ -22,7 +22,7 @@ export const getUserInfo = (userName) => {
   })
 }
 
-export const getUsers = ({ deptId, userName, email }) => {
+export const getUsers = (deptId, userName, email) => {
   return axios.request({
     url: '/user/getUsers',
     params: {

@@ -1,6 +1,6 @@
 .ivu-card-body{padding: 5px 5px 15px 5px !important}
 
-body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%}
+body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%;font-family: Monospaced Number,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif !important}
 #app{width:100%;height:100%}
 .app-layout{height: 100%;}
 
@@ -44,8 +44,8 @@ body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%}
 .app-sider-nav .ivu-menu-vertical .ivu-menu-item, .app-sider-nav .ivu-menu-vertical .ivu-menu-submenu-title{padding: 10px 5px 10px 15px;}
 .app-sider-nav .ivu-menu-submenu .ivu-menu .ivu-menu-item{padding: 8px 15px}
 
-.app-layout .app-tabs-nav-wrapper{padding:0;height:40px;overflow:hidden;border-bottom: 1px solid #ddd;background: #fff}
-.app-tabs-nav-wrapper .tabs-nav{position:relative;user-select:none;width:100%;height:100%}
+.app-layout .app-tabs-nav-wrapper{padding:0;overflow:hidden;border-bottom: 1px solid #e0e0e0;background: #fff}
+.app-tabs-nav-wrapper .tabs-nav{position:relative;user-select:none;width:100%;height:40px;}
 .app-tabs-nav-wrapper .tabs-nav .close-con{position:absolute;right:0;top:0;height:100%;width:32px;background:#fff;text-align:center;z-index:10;border-left:1px solid #ddd}
 .app-tabs-nav-wrapper .tabs-nav .btn-con{position:absolute;top:0;height:100%;background:#fff;padding-top:3px;z-index:10}
 .app-tabs-nav-wrapper .tabs-nav .btn-con button{padding:6px 10px;text-align:center;outline: none;box-shadow: none}
@@ -53,9 +53,19 @@ body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%}
 .app-tabs-nav-wrapper .tabs-nav .btn-con.right-btn{right:32px;border-left:1px solid #ddd}
 .app-tabs-nav-wrapper .tabs-nav .scroll-outer{position:absolute;left:29px;right:61px;top:0;bottom:0;}
 .app-tabs-nav-wrapper .tabs-nav .scroll-outer .scroll-body{display:inline-block;position:absolute;overflow:visible;white-space:nowrap;transition: left .3s ease;}
-.tabs-nav .tab{height: 39px; line-height: 39px;font-size: 13px}
-.tabs-nav .tab.tab-selected{border-bottom: 2px solid #00a65a;}
+.tabs-nav .tab{height: 40px; line-height: 39px;font-size: 13px}
+.tabs-nav .tab.tab-selected{border-bottom: 2px solid #00a65a;color: #00a65a}
 .tabs-nav .tab > i.tab-close-icon:hover{color: #f00}
-.app-tabs-nav-wrapper .app-tabs-nav-breadcrumb{height: 40px;line-height: 40px; padding-left: 10px;}
 
-.app-layout .app-content-wrapper{padding:5px;position:absolute;width: 100%;}
+.app-tabs-nav-wrapper .app-tabs-nav-breadcrumb{padding: 8px 15px;}
+.app-tabs-nav-wrapper .ivu-breadcrumb>span:last-child{font-weight: normal !important; color: #00a65a}
+
+.app-layout .app-content-layout{overflow-x:hidden;position:relative;background: #eee;}
+.app-content-layout .app-content-wrapper{padding:5px;position:absolute;width: 100%;}
+
+.tree ul{font-size: 14px !important;}
+.tree ul li i{font-size: 16px;}
+
+.search-bar{padding: 5px 0;}
+.search-bar .search-input{display: inline-block;width: 200px; margin-left: 5px;}
+.search-bar .search-btn{margin-left: 5px}

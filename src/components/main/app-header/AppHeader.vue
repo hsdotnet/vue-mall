@@ -10,6 +10,7 @@
             <span>Admin</span>
             <DropdownMenu slot="list">
               <DropdownItem name="profile"><IconFont type="user"/> 个人中心</DropdownItem>
+              <DropdownItem name="password"><IconFont type="key"/> 修改密码</DropdownItem>
               <DropdownItem name="setting"><IconFont type="setting"/> 个人设置</DropdownItem>
               <DropdownItem name="logout" divided><IconFont type="logout"/> 退出登录</DropdownItem>
             </DropdownMenu>
