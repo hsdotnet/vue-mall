@@ -78,6 +78,15 @@ export default [
           title: '部门管理'
         },
         component: () => import('@/views/system/dept')
+      },
+      {
+        path: 'test',
+        name: 'test',
+        meta: {
+          icon: 'dashboard',
+          title: '测试页面'
+        },
+        component: () => import('@/views/test')
       }
     ]
   }

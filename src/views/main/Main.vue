@@ -29,6 +29,7 @@
         </Layout>
       </Layout>
     </Layout>
+    <AppSiderControl />
   </Layout>
 </template>
 
@@ -37,6 +38,7 @@ import IconFont from '_c/icon-font'
 import AppHeader from '_c/main/app-header'
 import AppSiderNav from '_c/main/app-sider-nav'
 import AppTabNav from '_c/main/app-tab-nav'
+import AppSiderControl from '_c/main/app-sider-control'
 import Time from '_c/time'
 import { mapMutations, mapActions } from 'vuex'
 import { getNewTagList, getNextName, showTitle } from '@/libs/util'
@@ -47,6 +49,7 @@ export default {
     AppHeader,
     AppSiderNav,
     AppTabNav,
+    AppSiderControl,
     Time
   },
   data () {
@@ -123,8 +126,10 @@ export default {
   mounted () {
     const that = this
     that.collapsed = document.documentElement.clientWidth < 768
-    window.onresize = function temp () {
-      that.collapsed = document.documentElement.clientWidth < 768
+    window.onresize = function () {
+      setTimeout(function(){
+        that.collapsed = document.documentElement.clientWidth < 768
+      }, 200)
     }
     if (that.$store.state.user.isTab) {
       that.setTagNavList()
