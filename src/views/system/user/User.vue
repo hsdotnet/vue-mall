@@ -20,14 +20,16 @@ export default {
         { title: '编号', width: 70, key: 'userId' },
         { title: '用户名', width: 100, key: 'userName' },
         { title: '真实姓名', width: 100, key: 'realName' },
-        { title: '性别', width: 70, key: 'sex', align: 'center', render: (h, params) => {
-          const row = params.row
-          const color = row.sex === 1 ? 'green' : 'blue'
-          const text = row.sex === 1 ? '男' : '女'
-          return h('Tag', {
-            props: { color: color }
-          }, text);
-        } },
+        { title: '性别', width: 70, key: 'sex', align: 'center', 
+          render: (h, params) => {
+            const row = params.row
+            const color = row.sex === 1 ? 'green' : 'blue'
+            const text = row.sex === 1 ? '男' : '女'
+            return h('Tag', {
+              props: { color: color }
+            }, text)
+          } 
+        },
         { title: '出生日期', width: 100, key: 'birthday', align: 'center', render: (h, params) => {
           return h('div', moment().format('YYYY-MM-DD'))
         } },
@@ -41,7 +43,7 @@ export default {
   methods: {
     getTableData () {
       var that = this
-      getUsers(1, '', '').then(res=> {
+      getUsers(1, '', '').then(res => {
         that.data = res.data
       })
     },

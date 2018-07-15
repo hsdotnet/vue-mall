@@ -35,9 +35,9 @@ export default {
   methods: {
     getTableData () {
       var that = this
-      getRoles(that.page, that.size).then(res=> {
+      getRoles(that.page, that.size).then(res => {
         that.data = res.data.rows
-        that.total = res.data.records;
+        that.total = res.data.records
       })
     },
     search () {
@@ -46,11 +46,11 @@ export default {
     },
     pageChange (page) {
       this.page = page
-      this.getTableData()  
+      this.getTableData()
     },
     pageSizeChange (size) {
-      this.size = size;
-      this.getTableData();
+      this.size = size
+      this.getTableData()
     }
   },
   mounted () {

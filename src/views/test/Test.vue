@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     handleAddTabs () {
-      this.tabs ++
+      this.tabs++
       this.ct = 'tab' + this.tabs
     }
   }

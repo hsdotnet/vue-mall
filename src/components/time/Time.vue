@@ -24,7 +24,7 @@ export default {
     var that = this
     that.ts = that.getTime()
     setInterval(function () {
-      that.ts = that.getTime()	
+      that.ts = that.getTime()
     }, 1000)
   }
 }
