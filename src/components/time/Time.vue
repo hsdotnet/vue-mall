@@ -17,7 +17,7 @@ export default {
       let hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
       let minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
       let second = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
-      return date.getFullYear() + '年' + (date.getMonth() + 1) +'月' + date.getDate() + '日 ' + hour + ':' + minute + ':' + second + ' ' + day
+      return date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日 ' + hour + ':' + minute + ':' + second + ' ' + day
     }
   },
   mounted () {

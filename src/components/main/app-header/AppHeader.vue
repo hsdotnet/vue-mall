@@ -1,13 +1,28 @@
 <template>
-  <div class="app-header">
-    <a @click="handleToggle" type="text" :class="['sider-nav-toggle', collapsed ? 'collapsed' : '']"><IconFont type="outdent" :size="20" /></a>
-    <div class="header-bar">
-      <router-link class="logo" to="/">Admin</router-link>
-      <div class="custom-content-con">
-        <div class="user-dropdown">
+  <div class="app-header-warpper">
+    <ul class="app-header-left">
+      <li>
+        <a @click="handleToggle" type="text" :class="['icon sider-nav-toggle', collapsed ? 'collapsed' : '']"><IconFont type="outdent" /></a>
+      </li>
+      <li>
+        <router-link class="logo" to="/">Admin</router-link>
+      </li>
+    </ul>
+    <ul class="app-header-right">
+      <li>
+        <a type="text" class="icon notification"><IconFont type="notification" /></a>
+      </li>
+      <li>
+        <a type="text" class="icon message"><IconFont type="message" /></a>
+      </li>
+      <li>
+        <a type="text" class="icon fullscreen"><IconFont type="fullscreen" /></a>
+      </li>
+      <li>
+        <a type="text" class="user">
           <Dropdown @on-click="handleClick">
             <Avatar :src="userAvator" class="user-dropdown-avator"/>
-            <span>Admin</span>
+            <span class="user-text">Admin</span>
             <DropdownMenu slot="list">
               <DropdownItem name="profile"><IconFont type="user"/> 个人中心</DropdownItem>
               <DropdownItem name="password"><IconFont type="key"/> 修改密码</DropdownItem>
@@ -15,19 +30,27 @@
               <DropdownItem name="logout" divided><IconFont type="logout"/> 退出登录</DropdownItem>
             </DropdownMenu>
           </Dropdown>
-        </div>
-      </div>
-    </div>
+        </a>
+      </li>
+      <li>
+        <a type="text" class="icon setting" @click="handleToggleControl"><IconFont type="setting" /></a>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 import IconFont from '_c/icon-font'
-import { mapActions } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 export default {
   name: 'AppHeader',
   components: {
     IconFont
+  },
+  data () {
+    return {
+      open: false
+    }
   },
   props: {
     collapsed: Boolean
@@ -35,6 +58,9 @@ export default {
   methods: {
     ...mapActions([
       'handleLogout'
+    ]),
+    ...mapMutations([
+      'setControlOpen'
     ]),
     handleToggle () {
       this.$emit('on-change', !this.collapsed)
@@ -49,6 +75,10 @@ export default {
           })
           break
       }
+    },
+    handleToggleControl () {
+      this.open = !this.open
+      this.setControlOpen(this.open)
     }
   },
   computed: {

@@ -64,7 +64,7 @@ export default {
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
-  height: 120px;
+  height: 100px;
   overflow: hidden;
   position: relative;
   .left-area{

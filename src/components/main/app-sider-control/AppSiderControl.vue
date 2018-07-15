@@ -1,9 +1,5 @@
 <template>
   <div :class="['sider-control', open ? 'open' : '']">
-    <a type="text" class="sider-control-toggle" @click="controlToggle">
-      <Icon v-if="!open" type="android-settings"></Icon>
-      <Icon v-else type="android-close"></Icon>
-    </a>
     <div class="panel">
       <div class="panel-header">控制面板</div>
       <div class="panel-body">
@@ -32,7 +28,6 @@ export default {
   },
   data () {
     return {
-      open: false,
       topNavList: [
         { name: 'tzl', title: '天之蓝' },
         { name: 'hzl', title: '海之蓝' },
@@ -55,9 +50,9 @@ export default {
       ]
     }
   },
-  methods: {
-    controlToggle () {
-      this.open = !this.open
+  computed: {
+    open () {
+      return this.$store.state.app.controlOpen
     }
   }
 }
@@ -65,43 +60,26 @@ export default {
 
 <style lang="less">
 .sider-control{
-  top:100px;
+  top:50px;
+  bottom: 0;
   background:#fff;
   position:fixed;
   z-index: 100; 
   color: #333;
   transition-duration:.3s;
   transition-property:left,right;
-  width:240px;
-  right:-240px;
-  .sider-control-toggle{
-    position:absolute;
-    background: #fff;
-    border-radius:3px 0 0 3px;
-    width:42px;
-    height:42px;
-    left:-42px;
-    text-align:center;
-    border-top: 1px solid #ddd;
-    border-left: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    i{
-      font-size: 18px;
-      line-height: 42px;
-    }
-  }
+  width:300px;
+  right:-300px;
+  border-left:1px solid #ddd;
   .panel{
     position:relative;
     .panel-header{
       padding: 9px 10px 10px 10px;
       font-size: 14px;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #ddd; 
     }
     .panel-body{
       padding: 5px 5px 15px 5px;
-      border-left: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
       .ivu-tabs-nav .ivu-tabs-tab{
         padding: 10px;
         margin-right: 5px !important;
