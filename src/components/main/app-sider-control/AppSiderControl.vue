@@ -4,14 +4,11 @@
       <div class="panel-header">控制面板</div>
       <div class="panel-body">
         <Tabs class="app-tabs">
-          <TabPane label="顶部导航">
-            <SingleCheckboxList :list="topNavList" value="tzl" />
-          </TabPane>
-          <TabPane label="侧边导航">
-            <SingleCheckboxList :list="siderNavList" value="ayh" />
+          <TabPane label="皮肤设置">
+            <Theme :list="themeList" @on-change="handleThemeChange"/>
           </TabPane>
           <TabPane label="其它">
-            <SingleCheckboxList :list="otherList" />
+            
           </TabPane>
         </Tabs>
       </div>
@@ -20,39 +17,40 @@
 </template>
 
 <script>
-import SingleCheckboxList from '_c/single-checkbox-list'
+import Theme from '_c/theme'
+import { mapMutations } from 'vuex'
 export default {
   name: 'AppSiderControl',
   components: {
-    SingleCheckboxList
+    Theme
   },
   data () {
     return {
-      topNavList: [
-        { name: 'tzl', title: '天之蓝' },
-        { name: 'hzl', title: '海之蓝' },
-        { name: 'mzl', title: '梦之蓝' },
-        { name: 'xyh', title: '星耀黄' },
-        { name: 'fyh', title: '枫叶红' },
-        { name: 'gly', title: '橄榄绿' },
-        { name: 'mlz', title: '魅力紫' },
-        { name: 'ysy', title: '雅士银' },
-        { name: 'ahy', title: '暗夜黑' }
-      ],
-      siderNavList: [
-        { name: 'ayh', title: '暗夜黑' },
-        { name: 'gdh', title: '古典灰' },
-        { name: 'ysy', title: '雅士银' }
-      ],
-      otherList: [
-        { name: 'mklj', title: '固定当前模块路径导航' },
-        { name: 'yc', title: '隐藏当前模块路径导航' }
+      themeList: [
+        { name: 'grean', bgHeader: '#00a65a', bgSider: '#222d32' },
+        { name: 'blue', bgHeader: '#3c8dbc', bgSider: '#222d32' },
+        { name: 'black', bgHeader: '#fff', bgSider: '#222d32' },
+        { name: 'purple', bgHeader: '#605ca8', bgSider: '#222d32' },
+        { name: 'red', bgHeader: '#dd4b39', bgSider: '#222d32' },
+        { name: 'yellow', bgHeader: '#f39c12', bgSider: '#222d32' }
       ]
     }
   },
   computed: {
     open () {
       return this.$store.state.app.controlOpen
+    }
+  },
+  methods: {
+    ...mapMutations([
+      'setTheme'
+    ]),
+    handleThemeChange (item) {
+      //import('@/assets/themes/blue.css')
+      //let path = './src/assets/themes/blue.css'
+      //let themeLink = document.querySelector('link[name="theme"]')
+      //themeLink.setAttribute('href', path)
+      //this.setTheme(item.name)
     }
   }
 }
@@ -84,8 +82,8 @@ export default {
         padding: 10px;
         margin-right: 5px !important;
       }
-      .ivu-tabs .ivu-tabs-tabpane{
-        padding:0 10px;
+      .ivu-tabs-bar{
+        margin-bottom: 10px;
       }
     }
   }

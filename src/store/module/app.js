@@ -6,7 +6,8 @@ export default {
     tagNavList: [],
     homeRoute: getHomeRoute(routers),
     local: '',
-    controlOpen: false
+    controlOpen: false,
+    theme: 'blue'
   },
   getters: {
     menuList: (state, getters, rootState) => getMenuByRouter(routers, rootState.user.access)
@@ -33,6 +34,9 @@ export default {
     },
     setControlOpen (state, open) {
       state.controlOpen = open
+    },
+    setTheme (state, theme) {
+      state.theme = theme
     }
   }
 }
