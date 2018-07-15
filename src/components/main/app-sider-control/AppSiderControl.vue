@@ -46,11 +46,8 @@ export default {
       'setTheme'
     ]),
     handleThemeChange (item) {
-      //import('@/assets/themes/blue.css')
-      //let path = './src/assets/themes/blue.css'
-      //let themeLink = document.querySelector('link[name="theme"]')
-      //themeLink.setAttribute('href', path)
-      //this.setTheme(item.name)
+      localStorage.theme = item.name
+      this.setTheme(item.name)
     }
   }
 }

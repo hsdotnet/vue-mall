@@ -1,5 +1,5 @@
 <template>
-  <Layout class="app-layout">
+  <Layout :class="['app-layout', theme]">
     <Header class="app-header">
       <AppHeader :collapsed="collapsed" @on-change="handleCollapsedChange" />
     </Header>
@@ -72,6 +72,9 @@ export default {
     isTab () {
       return this.$store.state.user.isTab
     },
+    theme() {
+      return this.$store.state.app.theme
+    },
     cacheList () {
       return this.tagNavList.length ? this.tagNavList.filter(item => !(item.meta && item.meta.notCache)).map(item => item.name) : []
     },
@@ -89,6 +92,7 @@ export default {
     ...mapMutations([
       'setBreadCrumb',
       'setTagNavList',
+      'setTheme',
       'addTag'
     ]),
     ...mapActions([
@@ -132,6 +136,9 @@ export default {
       setTimeout(function () {
         that.collapsed = document.documentElement.clientWidth < 768
       }, 200)
+    }
+    if(localStorage.theme) {
+      that.setTheme(localStorage.theme)
     }
     if (that.$store.state.user.isTab) {
       that.setTagNavList()

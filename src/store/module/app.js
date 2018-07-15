@@ -7,7 +7,7 @@ export default {
     homeRoute: getHomeRoute(routers),
     local: '',
     controlOpen: false,
-    theme: 'blue'
+    theme: 'green'
   },
   getters: {
     menuList: (state, getters, rootState) => getMenuByRouter(routers, rootState.user.access)
