@@ -1,5 +1,5 @@
 <template>
-  <div style="background:#fff;">
+  <div>
     <Row :gutter="20" style="padding:15px">
       <i-col span="4" v-for="(info, i) in infoCardData" :key="`infor-${i}`">
         <InfoCard :bgColor="info.bgColor" :countColor="info.countColor" :icon="info.icon" :count="info.count" :title="info.title" :icon-size="36" />

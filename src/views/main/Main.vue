@@ -22,9 +22,11 @@
         </div>
         <Layout class="app-content-layout">
           <Content class="app-content-wrapper">
-            <keep-alive :include="cacheList">
-              <router-view/>
-            </keep-alive>
+            <div>
+              <keep-alive :include="cacheList">
+                <router-view/>
+              </keep-alive>
+            </div>
           </Content>
         </Layout>
       </Layout>
@@ -127,7 +129,7 @@ export default {
     const that = this
     that.collapsed = document.documentElement.clientWidth < 768
     window.onresize = function () {
-      setTimeout(function(){
+      setTimeout(function () {
         that.collapsed = document.documentElement.clientWidth < 768
       }, 200)
     }

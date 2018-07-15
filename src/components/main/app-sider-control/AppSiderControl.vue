@@ -65,10 +65,10 @@ export default {
 
 <style lang="less">
 .sider-control{
-  top:80px;
+  top:100px;
   background:#fff;
   position:fixed;
-  z-index:100; 
+  z-index: 100; 
   color: #333;
   transition-duration:.3s;
   transition-property:left,right;

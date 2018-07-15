@@ -62,7 +62,8 @@ body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%;font-family:
 .app-tabs-nav-wrapper .app-tabs-nav-breadcrumb .time{position: absolute; right: 15px; top: 10px;font-size: 14px;color: #999}
 
 .app-layout .app-content-layout{overflow-x:hidden;position:relative;background: #eee;}
-.app-content-layout .app-content-wrapper{padding:5px;position:absolute;width: 100%;background: #fff}
+.app-content-layout .app-content-wrapper{position:absolute;width: 100%;}
+.app-content-layout .app-content-wrapper > div{margin: 5px;background: #fff}
 
 .tree ul{font-size: 14px !important;}
 .tree ul li i{font-size: 16px;}

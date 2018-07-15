@@ -35,28 +35,28 @@ export default {
   },
   methods: {
     getTreeData () {
-        getDeptTree().then(res=>{
-            this.treeData = res.data;
-        })
+      getDeptTree().then(res => {
+        this.treeData = res.data
+      })
     },
     treeRender (h, { root, node, data }) {
-        return h('span', {
-            class: 'ivu-tree-title'
-        }, [
-            h('Icon', {
-              props: {
-                type: data.children.length > 0 ? 'folder' : 'document'
-              },
-              style: {
-                marginRight: '8px'
-              }
-            }),
-            h('span', data.title)
-        ])
+      return h('span', {
+        class: 'ivu-tree-title'
+      }, [
+        h('Icon', {
+          props: {
+            type: data.children.length > 0 ? 'folder' : 'document'
+          },
+          style: {
+            marginRight: '8px'
+          }
+        }),
+        h('span', data.title)
+      ])
     },
     getTableData () {
       var that = this
-      getDepts().then(res=> {
+      getDepts().then(res => {
         that.data = res.data
       })
     },

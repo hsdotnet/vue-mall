@@ -1,7 +1,7 @@
 <template>
     <div>
         <Tabs class="app-tabs" :value="ct">
-            <TabPane v-for="tab in tabs" :key="tab" :name="'tab' + tab">标签{{ tab }}</TabPane>
+            <TabPane v-for="tab in tabs" :key="tab" :name="'tab' + tab" :label="'标签' + tab">标签{{ tab }}</TabPane>
         </Tabs>
         <Button type="success" @click="handleAddTabs">Success</Button>
     </div>
@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     handleAddTabs () {
-      this.tabs ++;
+      this.tabs ++
       this.ct = 'tab' + this.tabs
     }
   }
